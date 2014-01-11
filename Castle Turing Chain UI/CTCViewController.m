@@ -14,23 +14,20 @@
 
 @implementation CTCViewController
 
-@synthesize firstNode = _firstNode, secondNode = _secondNode, thirdNode = _thirdNode;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self.firstNode turnOn];
-    [self.secondNode turnOff];
-    [self.thirdNode turnOff];
+    [firstNode turnOn];
+    [secondNode turnOff];
+    [thirdNode turnOff];
     
-    [firstNodeTapRecognizer addTarget:self action:@selector(handleGesture:)];
-    [secondNodeTapRecognizer addTarget:self action:@selector(handleGesture:)];
-    [thirdNodeTapRecognizer addTarget:self action:@selector(handleGesture:)];
-    
-    [self.firstNode addGestureRecognizer:firstNodeTapRecognizer];
-    [self.secondNode addGestureRecognizer:secondNodeTapRecognizer];
-    [self.thirdNode addGestureRecognizer:thirdNodeTapRecognizer];
+    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionUp withCountingNode:firstNode];
+    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionDown withCountingNode:firstNode];
+    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionUp withCountingNode:secondNode];
+    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionDown withCountingNode:secondNode];
+    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionUp withCountingNode:thirdNode];
+    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionDown withCountingNode:thirdNode];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,12 +36,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initSwipeRecognizer:(UISwipeGestureRecognizer *)swiper forDirection:(UISwipeGestureRecognizerDirection)direction withCountingNode:(CTCCountingNode *)countingNode {
+    //initialize the gesture recognizer
+    swiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+    
+    //set properties
+    [swiper setNumberOfTouchesRequired:1];
+    [swiper setDirection:direction];
+    
+    //add recognizer to node
+    [countingNode addGestureRecognizer:swiper];
+}
+
 #pragma mark - Gesture Recognition
 
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer {
+    UISwipeGestureRecognizer *swipe = (UISwipeGestureRecognizer *)gestureRecognizer;
     CTCCountingNode *tappedNode = (CTCCountingNode *)gestureRecognizer.view;
     
-    if (tappedNode.isOn) {
+    NSLog(@"SWIPE");
+    
+    UISwipeGestureRecognizerDirection dir = swipe.direction;
+    
+    if (dir == UISwipeGestureRecognizerDirectionDown) {
         [tappedNode turnOff];
     } else {
         [tappedNode turnOn];

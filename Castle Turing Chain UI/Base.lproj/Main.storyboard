@@ -34,26 +34,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="nX2-17-31D" appends="YES" id="Vxs-4t-fOS"/>
-                            <outletCollection property="gestureRecognizers" destination="rBT-BG-nXO" appends="YES" id="9II-s8-mKy"/>
-                            <outletCollection property="gestureRecognizers" destination="1xy-kK-PLW" appends="YES" id="cVV-jZ-BHc"/>
-                        </connections>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="firstNode" destination="BMB-v7-dVH" id="D9d-HM-ddy"/>
-                        <outlet property="firstNodeTapRecognizer" destination="nX2-17-31D" id="dHU-I0-Aif"/>
                         <outlet property="secondNode" destination="BYu-ac-lAR" id="LSB-l3-YgA"/>
-                        <outlet property="secondNodeTapRecognizer" destination="rBT-BG-nXO" id="TuW-TC-J7k"/>
                         <outlet property="thirdNode" destination="dbs-Vc-HUy" id="9qV-9N-Hrt"/>
-                        <outlet property="thirdNodeTapRecognizer" destination="1xy-kK-PLW" id="Ih6-qr-M49"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="nX2-17-31D"/>
-                <tapGestureRecognizer id="rBT-BG-nXO"/>
-                <tapGestureRecognizer id="1xy-kK-PLW"/>
             </objects>
             <point key="canvasLocation" x="-170" y="-208"/>
         </scene>
