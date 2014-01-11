@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EAD91FBB1880E0CD000E77FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD91FBA1880E0CD000E77FB /* Foundation.framework */; };
+		EAD91FBD1880E0CD000E77FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD91FBC1880E0CD000E77FB /* CoreGraphics.framework */; };
+		EAD91FBF1880E0CD000E77FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD91FBE1880E0CD000E77FB /* UIKit.framework */; };
+		EAD91FC51880E0CD000E77FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAD91FC31880E0CD000E77FB /* InfoPlist.strings */; };
+		EAD91FC71880E0CD000E77FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD91FC61880E0CD000E77FB /* main.m */; };
+		EAD91FCB1880E0CD000E77FB /* CTCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD91FCA1880E0CD000E77FB /* CTCAppDelegate.m */; };
+		EAD91FCE1880E0CD000E77FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD91FCC1880E0CD000E77FB /* Main.storyboard */; };
+		EAD91FD11880E0CD000E77FB /* CTCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD91FD01880E0CD000E77FB /* CTCViewController.m */; };
+		EAD91FD31880E0CD000E77FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD91FD21880E0CD000E77FB /* Images.xcassets */; };
+		EAD91FDA1880E0CD000E77FB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD91FD91880E0CD000E77FB /* XCTest.framework */; };
+		EAD91FDB1880E0CD000E77FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD91FBA1880E0CD000E77FB /* Foundation.framework */; };
+		EAD91FDC1880E0CD000E77FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD91FBE1880E0CD000E77FB /* UIKit.framework */; };
+		EAD91FE41880E0CD000E77FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAD91FE21880E0CD000E77FB /* InfoPlist.strings */; };
+		EAD91FE61880E0CD000E77FB /* Castle_Turing_Chain_UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD91FE51880E0CD000E77FB /* Castle_Turing_Chain_UITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EAD91FDD1880E0CD000E77FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAD91FAF1880E0CD000E77FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAD91FB61880E0CD000E77FB;
+			remoteInfo = "Castle Turing Chain UI";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EAD91FB71880E0CD000E77FB /* Castle Turing Chain UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Castle Turing Chain UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAD91FBA1880E0CD000E77FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EAD91FBC1880E0CD000E77FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EAD91FBE1880E0CD000E77FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EAD91FC21880E0CD000E77FB /* Castle Turing Chain UI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Castle Turing Chain UI-Info.plist"; sourceTree = "<group>"; };
+		EAD91FC41880E0CD000E77FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EAD91FC61880E0CD000E77FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EAD91FC81880E0CD000E77FB /* Castle Turing Chain UI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Castle Turing Chain UI-Prefix.pch"; sourceTree = "<group>"; };
+		EAD91FC91880E0CD000E77FB /* CTCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTCAppDelegate.h; sourceTree = "<group>"; };
+		EAD91FCA1880E0CD000E77FB /* CTCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTCAppDelegate.m; sourceTree = "<group>"; };
+		EAD91FCD1880E0CD000E77FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAD91FCF1880E0CD000E77FB /* CTCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTCViewController.h; sourceTree = "<group>"; };
+		EAD91FD01880E0CD000E77FB /* CTCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTCViewController.m; sourceTree = "<group>"; };
+		EAD91FD21880E0CD000E77FB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EAD91FD81880E0CD000E77FB /* Castle Turing Chain UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Castle Turing Chain UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAD91FD91880E0CD000E77FB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EAD91FE11880E0CD000E77FB /* Castle Turing Chain UITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Castle Turing Chain UITests-Info.plist"; sourceTree = "<group>"; };
+		EAD91FE31880E0CD000E77FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EAD91FE51880E0CD000E77FB /* Castle_Turing_Chain_UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Castle_Turing_Chain_UITests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAD91FB41880E0CD000E77FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD91FBD1880E0CD000E77FB /* CoreGraphics.framework in Frameworks */,
+				EAD91FBF1880E0CD000E77FB /* UIKit.framework in Frameworks */,
+				EAD91FBB1880E0CD000E77FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD91FD51880E0CD000E77FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD91FDA1880E0CD000E77FB /* XCTest.framework in Frameworks */,
+				EAD91FDC1880E0CD000E77FB /* UIKit.framework in Frameworks */,
+				EAD91FDB1880E0CD000E77FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAD91FAE1880E0CD000E77FB = {
+			isa = PBXGroup;
+			children = (
+				EAD91FC01880E0CD000E77FB /* Castle Turing Chain UI */,
+				EAD91FDF1880E0CD000E77FB /* Castle Turing Chain UITests */,
+				EAD91FB91880E0CD000E77FB /* Frameworks */,
+				EAD91FB81880E0CD000E77FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAD91FB81880E0CD000E77FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAD91FB71880E0CD000E77FB /* Castle Turing Chain UI.app */,
+				EAD91FD81880E0CD000E77FB /* Castle Turing Chain UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAD91FB91880E0CD000E77FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAD91FBA1880E0CD000E77FB /* Foundation.framework */,
+				EAD91FBC1880E0CD000E77FB /* CoreGraphics.framework */,
+				EAD91FBE1880E0CD000E77FB /* UIKit.framework */,
+				EAD91FD91880E0CD000E77FB /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAD91FC01880E0CD000E77FB /* Castle Turing Chain UI */ = {
+			isa = PBXGroup;
+			children = (
+				EAD91FC91880E0CD000E77FB /* CTCAppDelegate.h */,
+				EAD91FCA1880E0CD000E77FB /* CTCAppDelegate.m */,
+				EAD91FCC1880E0CD000E77FB /* Main.storyboard */,
+				EAD91FCF1880E0CD000E77FB /* CTCViewController.h */,
+				EAD91FD01880E0CD000E77FB /* CTCViewController.m */,
+				EAD91FD21880E0CD000E77FB /* Images.xcassets */,
+				EAD91FC11880E0CD000E77FB /* Supporting Files */,
+			);
+			path = "Castle Turing Chain UI";
+			sourceTree = "<group>";
+		};
+		EAD91FC11880E0CD000E77FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAD91FC21880E0CD000E77FB /* Castle Turing Chain UI-Info.plist */,
+				EAD91FC31880E0CD000E77FB /* InfoPlist.strings */,
+				EAD91FC61880E0CD000E77FB /* main.m */,
+				EAD91FC81880E0CD000E77FB /* Castle Turing Chain UI-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EAD91FDF1880E0CD000E77FB /* Castle Turing Chain UITests */ = {
+			isa = PBXGroup;
+			children = (
+				EAD91FE51880E0CD000E77FB /* Castle_Turing_Chain_UITests.m */,
+				EAD91FE01880E0CD000E77FB /* Supporting Files */,
+			);
+			path = "Castle Turing Chain UITests";
+			sourceTree = "<group>";
+		};
+		EAD91FE01880E0CD000E77FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAD91FE11880E0CD000E77FB /* Castle Turing Chain UITests-Info.plist */,
+				EAD91FE21880E0CD000E77FB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAD91FB61880E0CD000E77FB /* Castle Turing Chain UI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAD91FE91880E0CD000E77FB /* Build configuration list for PBXNativeTarget "Castle Turing Chain UI" */;
+			buildPhases = (
+				EAD91FB31880E0CD000E77FB /* Sources */,
+				EAD91FB41880E0CD000E77FB /* Frameworks */,
+				EAD91FB51880E0CD000E77FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Castle Turing Chain UI";
+			productName = "Castle Turing Chain UI";
+			productReference = EAD91FB71880E0CD000E77FB /* Castle Turing Chain UI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EAD91FD71880E0CD000E77FB /* Castle Turing Chain UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAD91FEC1880E0CD000E77FB /* Build configuration list for PBXNativeTarget "Castle Turing Chain UITests" */;
+			buildPhases = (
+				EAD91FD41880E0CD000E77FB /* Sources */,
+				EAD91FD51880E0CD000E77FB /* Frameworks */,
+				EAD91FD61880E0CD000E77FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAD91FDE1880E0CD000E77FB /* PBXTargetDependency */,
+			);
+			name = "Castle Turing Chain UITests";
+			productName = "Castle Turing Chain UITests";
+			productReference = EAD91FD81880E0CD000E77FB /* Castle Turing Chain UITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAD91FAF1880E0CD000E77FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CTC;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Grigg Brothers Produce";
+				TargetAttributes = {
+					EAD91FD71880E0CD000E77FB = {
+						TestTargetID = EAD91FB61880E0CD000E77FB;
+					};
+				};
+			};
+			buildConfigurationList = EAD91FB21880E0CD000E77FB /* Build configuration list for PBXProject "Castle Turing Chain UI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAD91FAE1880E0CD000E77FB;
+			productRefGroup = EAD91FB81880E0CD000E77FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAD91FB61880E0CD000E77FB /* Castle Turing Chain UI */,
+				EAD91FD71880E0CD000E77FB /* Castle Turing Chain UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAD91FB51880E0CD000E77FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD91FD31880E0CD000E77FB /* Images.xcassets in Resources */,
+				EAD91FC51880E0CD000E77FB /* InfoPlist.strings in Resources */,
+				EAD91FCE1880E0CD000E77FB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD91FD61880E0CD000E77FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD91FE41880E0CD000E77FB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAD91FB31880E0CD000E77FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD91FC71880E0CD000E77FB /* main.m in Sources */,
+				EAD91FD11880E0CD000E77FB /* CTCViewController.m in Sources */,
+				EAD91FCB1880E0CD000E77FB /* CTCAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD91FD41880E0CD000E77FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD91FE61880E0CD000E77FB /* Castle_Turing_Chain_UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EAD91FDE1880E0CD000E77FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAD91FB61880E0CD000E77FB /* Castle Turing Chain UI */;
+			targetProxy = EAD91FDD1880E0CD000E77FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EAD91FC31880E0CD000E77FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAD91FC41880E0CD000E77FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EAD91FCC1880E0CD000E77FB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAD91FCD1880E0CD000E77FB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EAD91FE21880E0CD000E77FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAD91FE31880E0CD000E77FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAD91FE71880E0CD000E77FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		EAD91FE81880E0CD000E77FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAD91FEA1880E0CD000E77FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Castle Turing Chain UI/Castle Turing Chain UI-Prefix.pch";
+				INFOPLIST_FILE = "Castle Turing Chain UI/Castle Turing Chain UI-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EAD91FEB1880E0CD000E77FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Castle Turing Chain UI/Castle Turing Chain UI-Prefix.pch";
+				INFOPLIST_FILE = "Castle Turing Chain UI/Castle Turing Chain UI-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EAD91FED1880E0CD000E77FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Castle Turing Chain UI.app/Castle Turing Chain UI";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Castle Turing Chain UI/Castle Turing Chain UI-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Castle Turing Chain UITests/Castle Turing Chain UITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		EAD91FEE1880E0CD000E77FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Castle Turing Chain UI.app/Castle Turing Chain UI";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Castle Turing Chain UI/Castle Turing Chain UI-Prefix.pch";
+				INFOPLIST_FILE = "Castle Turing Chain UITests/Castle Turing Chain UITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAD91FB21880E0CD000E77FB /* Build configuration list for PBXProject "Castle Turing Chain UI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAD91FE71880E0CD000E77FB /* Debug */,
+				EAD91FE81880E0CD000E77FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAD91FE91880E0CD000E77FB /* Build configuration list for PBXNativeTarget "Castle Turing Chain UI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAD91FEA1880E0CD000E77FB /* Debug */,
+				EAD91FEB1880E0CD000E77FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EAD91FEC1880E0CD000E77FB /* Build configuration list for PBXNativeTarget "Castle Turing Chain UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAD91FED1880E0CD000E77FB /* Debug */,
+				EAD91FEE1880E0CD000E77FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAD91FAF1880E0CD000E77FB /* Project object */;
+}
