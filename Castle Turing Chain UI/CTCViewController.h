@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CTCCountingNode.h"
 
-@interface CTCViewController : UIViewController
+@interface CTCViewController : UIViewController <UIGestureRecognizerDelegate> {
+    NSArray *countingNodes;
+    IBOutlet UITapGestureRecognizer *firstNodeTapRecognizer;
+    IBOutlet UITapGestureRecognizer *secondNodeTapRecognizer;
+    IBOutlet UITapGestureRecognizer *thirdNodeTapRecognizer;
+}
+
+@property (nonatomic, strong) IBOutlet CTCCountingNode *firstNode;
+@property (nonatomic, strong) IBOutlet CTCCountingNode *secondNode;
+@property (nonatomic, strong) IBOutlet CTCCountingNode *thirdNode;
+
+- (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer;
 
 @end

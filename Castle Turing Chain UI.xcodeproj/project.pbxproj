@@ -21,6 +21,7 @@
 		EAD91FDC1880E0CD000E77FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD91FBE1880E0CD000E77FB /* UIKit.framework */; };
 		EAD91FE41880E0CD000E77FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAD91FE21880E0CD000E77FB /* InfoPlist.strings */; };
 		EAD91FE61880E0CD000E77FB /* Castle_Turing_Chain_UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD91FE51880E0CD000E77FB /* Castle_Turing_Chain_UITests.m */; };
+		EAD91FF41880E37B000E77FB /* CTCCountingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD91FF31880E37B000E77FB /* CTCCountingNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		EAD91FE11880E0CD000E77FB /* Castle Turing Chain UITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Castle Turing Chain UITests-Info.plist"; sourceTree = "<group>"; };
 		EAD91FE31880E0CD000E77FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EAD91FE51880E0CD000E77FB /* Castle_Turing_Chain_UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Castle_Turing_Chain_UITests.m; sourceTree = "<group>"; };
+		EAD91FF21880E37B000E77FB /* CTCCountingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCCountingNode.h; sourceTree = "<group>"; };
+		EAD91FF31880E37B000E77FB /* CTCCountingNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCCountingNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,9 @@
 		EAD91FC01880E0CD000E77FB /* Castle Turing Chain UI */ = {
 			isa = PBXGroup;
 			children = (
+				EAD91FF11880E311000E77FB /* Models */,
+				EAD91FF01880E308000E77FB /* Views */,
+				EAD91FEF1880E301000E77FB /* Controllers */,
 				EAD91FC91880E0CD000E77FB /* CTCAppDelegate.h */,
 				EAD91FCA1880E0CD000E77FB /* CTCAppDelegate.m */,
 				EAD91FCC1880E0CD000E77FB /* Main.storyboard */,
@@ -150,6 +156,29 @@
 				EAD91FE21880E0CD000E77FB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EAD91FEF1880E301000E77FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EAD91FF01880E308000E77FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EAD91FF21880E37B000E77FB /* CTCCountingNode.h */,
+				EAD91FF31880E37B000E77FB /* CTCCountingNode.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		EAD91FF11880E311000E77FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +282,7 @@
 				EAD91FC71880E0CD000E77FB /* main.m in Sources */,
 				EAD91FD11880E0CD000E77FB /* CTCViewController.m in Sources */,
 				EAD91FCB1880E0CD000E77FB /* CTCAppDelegate.m in Sources */,
+				EAD91FF41880E37B000E77FB /* CTCCountingNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
