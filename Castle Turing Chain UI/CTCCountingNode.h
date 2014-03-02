@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UIColor *onColor;
 @property (nonatomic, strong) UIColor *offColor;
 @property (nonatomic) BOOL isOn;
+@property (nonatomic) int index;
 
 - (void) turnOn;
 - (void) turnOff;

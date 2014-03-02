@@ -11,14 +11,25 @@
 
 @interface CTCViewController : UIViewController <UIGestureRecognizerDelegate> {
     NSArray *countingNodes;
-    UISwipeGestureRecognizer *swipeRecognizer;
+    NSInteger count;
     
     IBOutlet CTCCountingNode *firstNode;
     IBOutlet CTCCountingNode *secondNode;
     IBOutlet CTCCountingNode *thirdNode;
+    IBOutlet CTCCountingNode *fourthNode;
+    IBOutlet CTCCountingNode *fifthNode;
+    IBOutlet CTCCountingNode *sixthNode;
+    IBOutlet CTCCountingNode *seventhNode;
+    IBOutlet CTCCountingNode *eighthNode;
+    
+    IBOutlet UILabel *intLabel;
+    IBOutlet UILabel *charLabel;
 }
 
+- (NSString *)binarify:(NSInteger)num;
 - (void)initSwipeRecognizer:(UISwipeGestureRecognizer *)swiper forDirection:(UISwipeGestureRecognizerDirection)direction withCountingNode:(CTCCountingNode *)countingNode;
+- (void)initTapRecognizer:(UITapGestureRecognizer *)tapper withCountingNode:(CTCCountingNode *)countingNode;
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer;
+- (void)reportNumber;
 
 @end

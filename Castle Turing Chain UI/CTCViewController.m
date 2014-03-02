@@ -18,16 +18,44 @@
 {
     [super viewDidLoad];
     
-    [firstNode turnOn];
-    [secondNode turnOff];
-    [thirdNode turnOff];
+    count = 0;
+    [self reportNumber];
+//    [firstNode turnOn];
     
-    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionUp withCountingNode:firstNode];
-    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionDown withCountingNode:firstNode];
-    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionUp withCountingNode:secondNode];
-    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionDown withCountingNode:secondNode];
-    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionUp withCountingNode:thirdNode];
-    [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionDown withCountingNode:thirdNode];
+    countingNodes = [NSArray arrayWithObjects:eighthNode, seventhNode, sixthNode, fifthNode, fourthNode, thirdNode, secondNode, firstNode, nil];
+    
+    int i = 7;
+    UISwipeGestureRecognizer *swipeRecognizer;
+    UITapGestureRecognizer *tapRecognizer;
+    for (CTCCountingNode *node in countingNodes) {
+        node.index = i--;
+        [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionUp withCountingNode:node];
+        [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionDown withCountingNode:node];
+        [self initTapRecognizer:tapRecognizer withCountingNode:node];
+    }
+}
+
+- (NSString *)binarify:(NSInteger)num {
+    NSString *renderedBinary = @"";
+    
+    //right now hard-coded at 8 bits.
+    int numBits = 8;
+    for (int i = 0; i<numBits; i++) {
+        NSInteger bit = (num>>i)&1;
+        NSString *bit_string = [NSString stringWithFormat:@"%d", bit];
+        
+        renderedBinary = [bit_string stringByAppendingString:renderedBinary];
+    }
+    
+    return renderedBinary;
+}
+
+- (void)reportNumber {
+    NSNumber *num = [NSNumber numberWithInt:count];
+    char charVal = [num charValue];
+    
+    intLabel.text = [num stringValue];
+    //charLabel.text = [NSString stringWithFormat:@"%c", charVal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,21 +76,35 @@
     [countingNode addGestureRecognizer:swiper];
 }
 
+- (void)initTapRecognizer:(UITapGestureRecognizer *)tapper withCountingNode:(CTCCountingNode *)countingNode {
+    //initialize the gesture recognizer
+    tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+    
+    //set properties
+    [tapper setNumberOfTapsRequired:1];
+    
+    //add recognizer to node
+    [countingNode addGestureRecognizer:tapper];
+}
+
 #pragma mark - Gesture Recognition
 
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer {
-    UISwipeGestureRecognizer *swipe = (UISwipeGestureRecognizer *)gestureRecognizer;
+    //UISwipeGestureRecognizer *swipe = (UISwipeGestureRecognizer *)gestureRecognizer;
     CTCCountingNode *tappedNode = (CTCCountingNode *)gestureRecognizer.view;
+    NSNumber *tappedIndex = [NSNumber numberWithInteger:tappedNode.index];
     
-    NSLog(@"SWIPE");
+    double delta = pow(2.0, [tappedIndex doubleValue]);
     
-    UISwipeGestureRecognizerDirection dir = swipe.direction;
-    
-    if (dir == UISwipeGestureRecognizerDirectionDown) {
+    if (tappedNode.isOn) {
+        count -= delta;
         [tappedNode turnOff];
-    } else {
+    } else if (!tappedNode.isOn) {
+        count += delta;
         [tappedNode turnOn];
     }
+    
+    [self reportNumber];
 }
 
 @end
