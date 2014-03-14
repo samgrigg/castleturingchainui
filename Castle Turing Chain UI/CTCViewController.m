@@ -18,6 +18,14 @@
 {
     [super viewDidLoad];
     
+    instructionLabel.text = @"Loading";
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    puzzleRetriever = [[CTCPuzzleRetriever alloc] init];
+    [puzzleRetriever requestFirstPuzzle];
+    
+    [nc addObserver:self selector:@selector(showPuzzle:) name:@"PuzzleDataReceived" object:puzzleRetriever];
+    
     count = 0;
     [self reportNumber];
 //    [firstNode turnOn];
@@ -33,6 +41,17 @@
         [self initSwipeRecognizer:swipeRecognizer forDirection:UISwipeGestureRecognizerDirectionDown withCountingNode:node];
         [self initTapRecognizer:tapRecognizer withCountingNode:node];
     }
+}
+
+- (void)showPuzzle:(NSNotification *)puzzleNotification {
+    [puzzleLoadingProgress stopAnimating];
+    
+    NSDictionary *puzzleData = puzzleRetriever.currentPuzzleDictionary;
+    NSString *instructions = [puzzleData objectForKey:@"ResponseText"];
+    
+    instructionLabel.text = instructions;
+    [instructionLabel setHidden:NO];
+    [self.view setNeedsDisplay];
 }
 
 - (NSString *)binarify:(NSInteger)num {
@@ -52,7 +71,7 @@
 
 - (void)reportNumber {
     NSNumber *num = [NSNumber numberWithInt:count];
-    char charVal = [num charValue];
+    //char charVal = [num charValue];
     
     intLabel.text = [num stringValue];
     //charLabel.text = [NSString stringWithFormat:@"%c", charVal];

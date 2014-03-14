@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CTCCountingNode.h"
+#import "CTCPuzzleRetriever.h"
 
 @interface CTCViewController : UIViewController <UIGestureRecognizerDelegate> {
     NSArray *countingNodes;
@@ -23,7 +24,12 @@
     IBOutlet CTCCountingNode *eighthNode;
     
     IBOutlet UILabel *intLabel;
-    IBOutlet UILabel *charLabel;
+    IBOutlet UILabel *instructionLabel;
+//    IBOutlet UILabel *charLabel;
+    
+    IBOutlet UIActivityIndicatorView *puzzleLoadingProgress;
+    
+    CTCPuzzleRetriever *puzzleRetriever;
 }
 
 - (NSString *)binarify:(NSInteger)num;
@@ -31,5 +37,6 @@
 - (void)initTapRecognizer:(UITapGestureRecognizer *)tapper withCountingNode:(CTCCountingNode *)countingNode;
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer;
 - (void)reportNumber;
+- (void)showPuzzle:(NSNotification *)puzzleNotification;
 
 @end
