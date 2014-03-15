@@ -24,7 +24,7 @@
     puzzleRetriever = [[CTCPuzzleRetriever alloc] init];
     [puzzleRetriever requestFirstPuzzle];
     
-    [nc addObserver:self selector:@selector(showPuzzle:) name:@"PuzzleDataReceived" object:puzzleRetriever];
+    [nc addObserver:self selector:@selector(puzzleReady:) name:@"PuzzleDataReceived" object:puzzleRetriever];
     
     count = 0;
     [self reportNumber];
@@ -43,15 +43,23 @@
     }
 }
 
-- (void)showPuzzle:(NSNotification *)puzzleNotification {
-    [puzzleLoadingProgress stopAnimating];
-    
-    NSDictionary *puzzleData = puzzleRetriever.currentPuzzleDictionary;
-    NSString *instructions = [puzzleData objectForKey:@"ResponseText"];
+- (IBAction)submitAnswer:(id)sender {
+    [puzzleLoadingProgress startAnimating];
+    [puzzleRetriever submitAnswer:[NSNumber numberWithInt:count]];
+}
+
+- (void)showPuzzle {
+    CTCPuzzle *puzzleToShow = puzzleRetriever.currentPuzzle;
+    NSString *instructions = puzzleToShow.responseText;
     
     instructionLabel.text = instructions;
     [instructionLabel setHidden:NO];
     [self.view setNeedsDisplay];
+}
+
+- (void)puzzleReady:(NSNotification *)notification {
+    [puzzleLoadingProgress stopAnimating];
+    [self showPuzzle];
 }
 
 - (NSString *)binarify:(NSInteger)num {

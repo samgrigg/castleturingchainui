@@ -12,10 +12,14 @@
 
 @implementation CTCPuzzleRetriever
 
-@synthesize currentPuzzleIndex = _currentPuzzleIndex, currentPuzzleDictionary = _currentPuzzleDictionary;
+@synthesize currentPuzzleIndex = _currentPuzzleIndex;
 
 - (void)requestFirstPuzzle {
     [self requestPuzzleAtIndex:[NSNumber numberWithInt:0]];
+}
+
+- (void)requestCurrentPuzzle {
+    [self requestPuzzleAtIndex:[NSNumber numberWithInt:self.currentPuzzleIndex]];
 }
 
 - (void)requestPuzzleAtIndex:(NSNumber *)puzzleIndex {
@@ -30,19 +34,53 @@
     mutableAPIRequest.HTTPMethod = @"POST";
     
     [NSURLConnection sendAsynchronousRequest:mutableAPIRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *puzzleData, NSError *error){
-     
         if ([puzzleData length] > 0 && error == nil) {
-            NSError *jsonError;
-            NSDictionary *jsonPuzzle = [NSJSONSerialization JSONObjectWithData:puzzleData options:kNilOptions error:&jsonError];
-            
-            _currentPuzzleDictionary = [jsonPuzzle objectForKey:@"Data"];
-            
-            NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-            NSNotification *puzzleDataReceivedNotification = [NSNotification notificationWithName:@"PuzzleDataReceived" object:self];
-            
-            [nc postNotification:puzzleDataReceivedNotification];
+            [self handleAsyncPuzzleResponse:puzzleData];
         }
     }];
+}
+
+- (void)submitAnswer:(NSNumber *)answerCandidate {
+    NSString *indexString = [[NSNumber numberWithInt:self.currentPuzzleIndex] stringValue];
+    NSString *answerCandidateString = [answerCandidate stringValue];
+    NSString *puzzleStringForIndexWithAnswer = [kPuzzleBaseURLString stringByAppendingString:indexString];
+    puzzleStringForIndexWithAnswer = [puzzleStringForIndexWithAnswer stringByAppendingString:@"?candidate="];
+    puzzleStringForIndexWithAnswer = [puzzleStringForIndexWithAnswer stringByAppendingString:answerCandidateString];
+    
+    NSURL *candidateURL = [NSURL URLWithString:puzzleStringForIndexWithAnswer];
+    NSURLRequest *answerRequest = [NSURLRequest requestWithURL:candidateURL];
+    NSMutableURLRequest *mutableAnswerRequest = [answerRequest mutableCopy];
+    mutableAnswerRequest.HTTPMethod = @"POST";
+    
+    NSOperationQueue *queue = [NSOperationQueue mainQueue];
+    
+    [NSURLConnection sendAsynchronousRequest:mutableAnswerRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *puzzleData, NSError *error) {
+        if ([puzzleData length] > 0 && error == nil) {
+            [self handleAsyncPuzzleResponse:puzzleData];
+        }
+    }];
+}
+
+-(void)handleAsyncPuzzleResponse:(NSData *)puzzleData {
+    NSError *jsonError;
+    NSDictionary *jsonPuzzle = [NSJSONSerialization JSONObjectWithData:puzzleData options:kNilOptions error:&jsonError];
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    if (jsonError == nil) {
+        NSDictionary *puzzleData = [jsonPuzzle objectForKey:@"Data"];
+        self.currentPuzzle = [CTCPuzzle puzzleFromDictionary:puzzleData];
+        
+        NSNotification *puzzleDataReceivedNotification = [NSNotification notificationWithName:@"PuzzleDataReceived" object:self];
+        
+        [nc postNotification:puzzleDataReceivedNotification];
+    } else {
+        NSLog(@"Something wrong with JSON from server: %@", jsonError);
+        
+        NSNotification *puzzleDataErrorNotification = [NSNotification notificationWithName:@"PuzzleDataError" object:self];
+        
+        [nc postNotification:puzzleDataErrorNotification];
+    }
 }
 
 

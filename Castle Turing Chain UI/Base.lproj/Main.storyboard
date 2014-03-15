@@ -74,6 +74,14 @@
                                 <rect key="frame" x="51" y="57" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZw-NH-Yei">
+                                <rect key="frame" x="811" y="687" width="154" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit Answer"/>
+                                <connections>
+                                    <action selector="submitAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4UY-2X-4Ny"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -91,6 +99,7 @@
                         <outlet property="secondNode" destination="Q78-zg-WfC" id="n6d-rJ-RFE"/>
                         <outlet property="seventhNode" destination="XF7-cv-TR0" id="ZuG-D7-rqE"/>
                         <outlet property="sixthNode" destination="tSv-Om-c68" id="IJ6-1k-QNm"/>
+                        <outlet property="submitAnswerButton" destination="JZw-NH-Yei" id="EsR-OX-Ah7"/>
                         <outlet property="thirdNode" destination="xmJ-lh-dC6" id="Clp-jh-WE8"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="R1r-S9-cbf"/>
                     </connections>

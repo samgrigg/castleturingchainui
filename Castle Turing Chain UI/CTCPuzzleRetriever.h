@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CTCPuzzle.h"
 
 @interface CTCPuzzleRetriever : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
-@property (atomic) NSInteger *currentPuzzleIndex;
-@property (readonly, atomic) NSDictionary *currentPuzzleDictionary;
+@property (nonatomic) NSInteger currentPuzzleIndex;
+@property (strong, nonatomic) CTCPuzzle *currentPuzzle;
 
 - (void)requestFirstPuzzle;
+- (void)requestCurrentPuzzle;
 - (void)requestPuzzleAtIndex:(NSNumber *)puzzleIndex;
+- (void)submitAnswer:(NSNumber *)answerCandidate;
+
+- (void)handleAsyncPuzzleResponse:(NSData *)puzzleData;
 
 @end
