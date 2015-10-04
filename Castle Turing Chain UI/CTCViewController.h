@@ -14,6 +14,7 @@
 @interface CTCViewController : UIViewController <UIGestureRecognizerDelegate> {
     NSArray *countingNodes;
     NSInteger count;
+    BOOL submittingAnswer;
     CTCPuzzle *currentPuzzle;
     
     IBOutlet CTCCountingNode *firstNode;
@@ -25,9 +26,14 @@
     IBOutlet CTCCountingNode *seventhNode;
     IBOutlet CTCCountingNode *eighthNode;
     
+    IBOutlet UIView *modalRewardView;
+    
     IBOutlet UIButton *submitAnswerButton;
+    IBOutlet UIButton *cheatButton;
+    IBOutlet UIButton *startOverButton;
     IBOutlet UILabel *intLabel;
     IBOutlet UILabel *instructionLabel;
+    IBOutlet UILabel *feedbackLabel;
 //    IBOutlet UILabel *charLabel;
     
     IBOutlet UIActivityIndicatorView *puzzleLoadingProgress;
@@ -42,8 +48,10 @@
 - (void)reportNumber;
 
 - (void)puzzleReady:(NSNotification *)notification;
-- (void)showPuzzle;
+- (void)requestCurrentPuzzle;
 
-- (IBAction)submitAnswer:(id)sender;
+- (IBAction)submitButtonTap:(id)sender;
+- (IBAction)startOverTap:(id)sender;
+- (IBAction)cheatButtonTap:(id)sender;
 
 @end

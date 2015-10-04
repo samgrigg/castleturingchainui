@@ -18,6 +18,7 @@
 //}
 
 @implementation CTCPuzzle
+@synthesize puzzleID = _puzzleID, responseText = _responseText, errorCount = _errorCount, isCorrect = _isCorrect, nextURL = _nextURL, stepNumber = _stepNumber, backingDictionary = _backingDictionary;
 
 + (CTCPuzzle *)puzzleFromDictionary:(NSDictionary *)sourceDictionary {
     CTCPuzzle *puzz = [[CTCPuzzle alloc] init];
@@ -36,24 +37,32 @@
 }
 
 - (NSDictionary *)toDictionary {
-    NSDictionary *resultDictionary;
+    NSMutableDictionary *resultDictionary;
     
     if (self.backingDictionary) {
-        resultDictionary = self.backingDictionary;
+        resultDictionary = [self.backingDictionary mutableCopy];
     } else {
         NSString *urlString = self.nextURL.absoluteString;
+
+        resultDictionary = [[NSMutableDictionary alloc] init];
+        [resultDictionary setObject:self.errorCount forKey:@"ErrorCount"];
+        [resultDictionary setObject:[NSNumber numberWithBool:self.isCorrect] forKey:@"IsCorrect"];
+        [resultDictionary setObject:urlString forKey:@"NextUri"];
+        [resultDictionary setObject:self.puzzleID forKey:@"PuzzleId"];
+        [resultDictionary setObject:self.responseText forKey:@"ResponseText"];
+        [resultDictionary setObject:self.stepNumber forKey:@"Step"];
         
-        resultDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                            self.errorCount, @"ErrorCount",
-                            self.isCorrect, @"IsCorrect",
-                            urlString, @"NextUri",
-                            self.puzzleID, @"PuzzleId",
-                            self.responseText, @"ResponseText",
-                            self.stepNumber, @"Step",
-                            nil];
+//        resultDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                            self.errorCount, @"ErrorCount",
+//                            self.isCorrect, @"IsCorrect",
+//                            urlString, @"NextUri",
+//                            self.puzzleID, @"PuzzleId",
+//                            self.responseText, @"ResponseText",
+//                            self.stepNumber, @"Step",
+//                            nil];
     }
     
-    return resultDictionary;
+    return resultDictionary ;
 }
 
 @end

@@ -17,7 +17,7 @@
 - (void)requestFirstPuzzle;
 - (void)requestCurrentPuzzle;
 - (void)requestPuzzleAtIndex:(NSNumber *)puzzleIndex;
-- (void)submitAnswer:(NSNumber *)answerCandidate;
+- (void)submitAnswer:(NSString *)answerCandidate;
 
 - (void)handleAsyncPuzzleResponse:(NSData *)puzzleData;
 

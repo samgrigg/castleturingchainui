@@ -24,6 +24,7 @@
 		EAD91FE41880E0CD000E77FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAD91FE21880E0CD000E77FB /* InfoPlist.strings */; };
 		EAD91FE61880E0CD000E77FB /* Castle_Turing_Chain_UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD91FE51880E0CD000E77FB /* Castle_Turing_Chain_UITests.m */; };
 		EAD91FF41880E37B000E77FB /* CTCCountingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD91FF31880E37B000E77FB /* CTCCountingNode.m */; };
+		EAE55E1B19135EA800E8C8E5 /* PuzzleTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE55E1A19135EA800E8C8E5 /* PuzzleTestCase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		EAD91FE51880E0CD000E77FB /* Castle_Turing_Chain_UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Castle_Turing_Chain_UITests.m; sourceTree = "<group>"; };
 		EAD91FF21880E37B000E77FB /* CTCCountingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCCountingNode.h; sourceTree = "<group>"; };
 		EAD91FF31880E37B000E77FB /* CTCCountingNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCCountingNode.m; sourceTree = "<group>"; };
+		EAE55E1A19135EA800E8C8E5 /* PuzzleTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleTestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +128,6 @@
 				EAD91FEF1880E301000E77FB /* Controllers */,
 				EAD91FC91880E0CD000E77FB /* CTCAppDelegate.h */,
 				EAD91FCA1880E0CD000E77FB /* CTCAppDelegate.m */,
-				EAD91FCC1880E0CD000E77FB /* Main.storyboard */,
 				EAD91FCF1880E0CD000E77FB /* CTCViewController.h */,
 				EAD91FD01880E0CD000E77FB /* CTCViewController.m */,
 				EAD91FD21880E0CD000E77FB /* Images.xcassets */,
@@ -151,6 +152,7 @@
 			children = (
 				EAD91FE51880E0CD000E77FB /* Castle_Turing_Chain_UITests.m */,
 				EAD91FE01880E0CD000E77FB /* Supporting Files */,
+				EAE55E1A19135EA800E8C8E5 /* PuzzleTestCase.m */,
 			);
 			path = "Castle Turing Chain UITests";
 			sourceTree = "<group>";
@@ -174,6 +176,7 @@
 		EAD91FF01880E308000E77FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EAD91FCC1880E0CD000E77FB /* Main.storyboard */,
 				EAD91FF21880E37B000E77FB /* CTCCountingNode.h */,
 				EAD91FF31880E37B000E77FB /* CTCCountingNode.m */,
 			);
@@ -236,7 +239,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CTC;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Grigg Brothers Produce";
 				TargetAttributes = {
 					EAD91FD71880E0CD000E77FB = {
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAD91FE61880E0CD000E77FB /* Castle_Turing_Chain_UITests.m in Sources */,
+				EAE55E1B19135EA800E8C8E5 /* PuzzleTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +352,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -379,6 +382,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "The Duke";
+				PROVISIONING_PROFILE = "069D0F92-D6E9-4504-951E-7D6817063531";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -388,7 +393,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -412,6 +416,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "The Duke";
+				PROVISIONING_PROFILE = "069D0F92-D6E9-4504-951E-7D6817063531";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -447,7 +453,6 @@
 		EAD91FED1880E0CD000E77FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Castle Turing Chain UI.app/Castle Turing Chain UI";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -470,7 +475,6 @@
 		EAD91FEE1880E0CD000E77FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Castle Turing Chain UI.app/Castle Turing Chain UI";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

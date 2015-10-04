@@ -21,6 +21,7 @@
     instructionLabel.text = @"Loading";
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
+    submittingAnswer = NO;
     puzzleRetriever = [[CTCPuzzleRetriever alloc] init];
     [puzzleRetriever requestFirstPuzzle];
     
@@ -43,23 +44,57 @@
     }
 }
 
-- (IBAction)submitAnswer:(id)sender {
+- (void)requestCurrentPuzzle {
     [puzzleLoadingProgress startAnimating];
-    [puzzleRetriever submitAnswer:[NSNumber numberWithInt:count]];
+    [puzzleRetriever requestCurrentPuzzle];
 }
 
-- (void)showPuzzle {
-    CTCPuzzle *puzzleToShow = puzzleRetriever.currentPuzzle;
-    NSString *instructions = puzzleToShow.responseText;
-    
-    instructionLabel.text = instructions;
-    [instructionLabel setHidden:NO];
-    [self.view setNeedsDisplay];
+- (IBAction)submitButtonTap:(id)sender {
+    [puzzleLoadingProgress startAnimating];
+    submittingAnswer = YES;
+    [puzzleRetriever submitAnswer:[self binarify:count]];
+}
+
+- (IBAction)startOverTap:(id)sender {
+    submittingAnswer = NO;
+    puzzleRetriever = nil;
+    puzzleRetriever = [[CTCPuzzleRetriever alloc] init];
+    [puzzleRetriever requestFirstPuzzle];
+}
+
+- (IBAction)cheatButtonTap:(id)sender {
+    if (intLabel.isHidden) {
+        [intLabel setHidden:NO];
+        [cheatButton setTitle:@"Stop Cheating" forState:UIControlStateNormal];
+    } else {
+        [intLabel setHidden:YES];
+        [cheatButton setTitle:@"Cheat" forState:UIControlStateNormal];
+    }
 }
 
 - (void)puzzleReady:(NSNotification *)notification {
     [puzzleLoadingProgress stopAnimating];
-    [self showPuzzle];
+    
+    CTCPuzzle *puzzleToShow = puzzleRetriever.currentPuzzle;
+    NSString *instructions = puzzleToShow.responseText;
+    
+    if (submittingAnswer) {
+        submittingAnswer = NO;
+        
+        feedbackLabel.text = instructions;
+        [feedbackLabel setHidden:NO];
+        
+        if (puzzleToShow.isCorrect) {
+            
+            [instructionLabel setHidden:YES];
+            
+            [self requestCurrentPuzzle];
+        }
+    } else {
+        instructionLabel.text = instructions;
+        [instructionLabel setHidden:NO];
+    }
+    
 }
 
 - (NSString *)binarify:(NSInteger)num {

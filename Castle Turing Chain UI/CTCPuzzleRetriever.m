@@ -1,5 +1,5 @@
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define kPuzzleBaseURLString @"http://theduke.azurewebsites.net/api/bytepuzzle/"
+#define kPuzzleBaseURLString @"http://theduke.azurewebsites.net/api/puzzlesfromfile/"
 //
 //  CTCPuzzleRetriever.m
 //  Castle Turing Chain UI
@@ -19,42 +19,44 @@
 }
 
 - (void)requestCurrentPuzzle {
-    [self requestPuzzleAtIndex:[NSNumber numberWithInt:self.currentPuzzleIndex]];
-}
-
-- (void)requestPuzzleAtIndex:(NSNumber *)puzzleIndex {
-    NSString *indexString = [puzzleIndex stringValue];
-    NSString *puzzleStringForIndex = [kPuzzleBaseURLString stringByAppendingString:indexString];
-    NSURL *puzzleURL = [NSURL URLWithString:puzzleStringForIndex];
-    
-    NSOperationQueue *queue = [NSOperationQueue mainQueue];
-    
-    NSURLRequest *apiRequest = [NSURLRequest requestWithURL:puzzleURL];
+    NSURLRequest *apiRequest = [NSURLRequest requestWithURL:self.currentPuzzle.nextURL];
     NSMutableURLRequest *mutableAPIRequest = [apiRequest mutableCopy];
     mutableAPIRequest.HTTPMethod = @"POST";
     
-    [NSURLConnection sendAsynchronousRequest:mutableAPIRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *puzzleData, NSError *error){
+    [NSURLConnection sendAsynchronousRequest:mutableAPIRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *puzzleData, NSError *error){
         if ([puzzleData length] > 0 && error == nil) {
             [self handleAsyncPuzzleResponse:puzzleData];
         }
     }];
 }
 
-- (void)submitAnswer:(NSNumber *)answerCandidate {
-    NSString *indexString = [[NSNumber numberWithInt:self.currentPuzzleIndex] stringValue];
-    NSString *answerCandidateString = [answerCandidate stringValue];
-    NSString *puzzleStringForIndexWithAnswer = [kPuzzleBaseURLString stringByAppendingString:indexString];
-    puzzleStringForIndexWithAnswer = [puzzleStringForIndexWithAnswer stringByAppendingString:@"?candidate="];
-    puzzleStringForIndexWithAnswer = [puzzleStringForIndexWithAnswer stringByAppendingString:answerCandidateString];
+- (void)requestPuzzleAtIndex:(NSNumber *)puzzleIndex {
+//    NSString *indexString = [puzzleIndex stringValue];
+//    NSString *puzzleStringForIndex = [kPuzzleBaseURLString stringByAppendingString:indexString];
+    NSURL *puzzleURL = [NSURL URLWithString:kPuzzleBaseURLString];
+    
+    NSURLRequest *apiRequest = [NSURLRequest requestWithURL:puzzleURL];
+    NSMutableURLRequest *mutableAPIRequest = [apiRequest mutableCopy];
+    mutableAPIRequest.HTTPMethod = @"POST";
+    
+    [NSURLConnection sendAsynchronousRequest:mutableAPIRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *puzzleData, NSError *error){
+        if ([puzzleData length] > 0 && error == nil) {
+            [self handleAsyncPuzzleResponse:puzzleData];
+        }
+    }];
+}
+
+- (void)submitAnswer:(NSString *)answerCandidate {
+    NSString *puzzleStringForIndexWithAnswer = [self.currentPuzzle.nextURL absoluteString];
+    puzzleStringForIndexWithAnswer = [puzzleStringForIndexWithAnswer stringByAppendingString:@"&candidate="];
+    puzzleStringForIndexWithAnswer = [puzzleStringForIndexWithAnswer stringByAppendingString:answerCandidate];
     
     NSURL *candidateURL = [NSURL URLWithString:puzzleStringForIndexWithAnswer];
     NSURLRequest *answerRequest = [NSURLRequest requestWithURL:candidateURL];
     NSMutableURLRequest *mutableAnswerRequest = [answerRequest mutableCopy];
     mutableAnswerRequest.HTTPMethod = @"POST";
     
-    NSOperationQueue *queue = [NSOperationQueue mainQueue];
-    
-    [NSURLConnection sendAsynchronousRequest:mutableAnswerRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *puzzleData, NSError *error) {
+    [NSURLConnection sendAsynchronousRequest:mutableAnswerRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *puzzleData, NSError *error) {
         if ([puzzleData length] > 0 && error == nil) {
             [self handleAsyncPuzzleResponse:puzzleData];
         }
@@ -68,8 +70,9 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
     if (jsonError == nil) {
-        NSDictionary *puzzleData = [jsonPuzzle objectForKey:@"Data"];
-        self.currentPuzzle = [CTCPuzzle puzzleFromDictionary:puzzleData];
+        CTCPuzzle *returnedPuzzle = [CTCPuzzle puzzleFromDictionary:jsonPuzzle];
+        
+        self.currentPuzzle = returnedPuzzle;
         
         NSNotification *puzzleDataReceivedNotification = [NSNotification notificationWithName:@"PuzzleDataReceived" object:self];
         
